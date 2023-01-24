@@ -20,9 +20,16 @@ func main() {
 		exit("Failed to parse file")
 	}
 	problems := makeProblem(line)
-	for i, j := range problems {
-		fmt.Println(i, j)
+	correct := 0
+	for i, p := range problems {
+		fmt.Printf("#%d Whats %s = ", (i + 1), p.q)
+		var ans string
+		fmt.Scanf("%s\n", &ans)
+		if ans == p.a {
+			correct++
+		}
 	}
+	fmt.Printf("\nYour Score = %d", correct)
 }
 
 type problem struct {
